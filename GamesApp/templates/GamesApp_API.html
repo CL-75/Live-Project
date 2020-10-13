@@ -1,0 +1,22 @@
+{% extends 'GamesApp/GamesApp_Base.html' %}
+
+{% load static %}
+
+{% block title %} GAMES APP | Game API {% endblock %}
+
+{% block content %}
+<table>
+    <form method="GET">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+{% if games %}
+{% for i in games.results %}
+    <a href="{{ i.href }}" target="_blank">{{ i.title }}</a>
+    <br>
+{% endfor %}
+{% endif %}
+</table>
+
+{% endblock %}
